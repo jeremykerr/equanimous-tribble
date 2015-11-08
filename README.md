@@ -25,19 +25,19 @@ This is just a test application so that I can learn a bit more about the life of
 
 To update your package lists so that you can access the most up to date versions of the software you're running:
 
-    sudo apt-get update
+    pi@raspberrypi ~ $ sudo apt-get update
 
 To install the most up to date versions of the software you're running:
 
-    sudo apt-get upgrade
+    pi@raspberrypi ~ $ sudo apt-get upgrade
 
 To clean the memory used by installation files:
 
-    sudo apt-get clean
+    pi@raspberrypi ~ $ sudo apt-get clean
 
 To view the current memory usage:
 
-    df -h
+    pi@raspberrypi ~ $ df -h
 
 ### Enabling SSH for remote development
 
@@ -45,7 +45,7 @@ To view the current memory usage:
 
 Open the Raspberry Pi config utility to enable ssh.
 
-    sudo raspi-config
+    pi@raspberrypi ~ $ sudo raspi-config
 
 ```
 [8 Advanced Options]
@@ -57,7 +57,7 @@ Open the Raspberry Pi config utility to enable ssh.
 
 Get the inet address of the Raspberry Pi device in order to be able to ssh in.
 
-    ifconfig
+    pi@raspberrypi ~ $ ifconfig
 
 ```
 eth0      Link encap:Ethernet  HWaddr b8:27:eb:7f:8d:fa  
@@ -81,7 +81,7 @@ lo        Link encap:Local Loopback
 
 Log in from a different machine on the same network.
 
-    ssh pi@10.0.0.7
+    jeremykerr@jeremykerr ~ $ ssh pi@10.0.0.7
 
 #### **TODO:** *Enable SSH over the internet*
 
@@ -95,18 +95,18 @@ Log in from a different machine on the same network.
 
 Install pip (the Python package index) in order to install Flask.
 
-    sudo apt-get install python-pip
+    pi@raspberrypi ~ $ sudo apt-get install python-pip
 
 Install Flask (a microforamework for a Python based web server).
 http://flask.pocoo.org/
 
-    sudo pip install Flask
+    pi@raspberrypi ~ $ sudo pip install Flask
 
 #### Build a simple hello world application
 
 Create and open a new file called "hello.py".
 
-    vi hello.py
+    pi@raspberrypi ~ $ vi hello.py
 
 Some code needs to be written in order to create the server instance and to return a "Hello, world." string when a request is made to the application. One thing worth mentioning is that app.debug is being set to False in the following code. The property app.debug can be used to dynamically reload the source file (hello.py) whenever it is changed, which is convenient when developing locally on a machine that is not accepting requests from the web. However, this dynamic reloading makes it possible for a malicious attacker to run arbitrary code through your web application, so app.debug should never be set to True on a production machine. Read the Flask documentation for more details.
 
@@ -143,7 +143,7 @@ To save changes within the vi editor:
 
 Get the inet address of the Raspberry Pi device.
 
-    ifconfig
+    pi@raspberrypi ~ $ ifconfig
 
 ```
 eth0      Link encap:Ethernet  HWaddr b8:27:eb:7f:8d:fa  
@@ -167,17 +167,17 @@ lo        Link encap:Local Loopback
 
 View the iptables rules in place.
 
-    sudo iptables -L
+    pi@raspberrypi ~ $ sudo iptables -L
 
 Add an accept rule in order to receive requests over the specified port (5000) from other machines on the local network. Then list the rules again to verify it was added.
 
-    sudo iptables -I INPUT -p tcp --dport 5000 -j ACCEPT
-    sudo iptables -L
+    pi@raspberrypi ~ $ sudo iptables -I INPUT -p tcp --dport 5000 -j ACCEPT
+    pi@raspberrypi ~ $ sudo iptables -L
 
 Restart IP Tables to activate the new rule set.
 
-    sudo ifconfig eth0 down
-    sudo ifconfig eth0 up
+    pi@raspberrypi ~ $ sudo ifconfig eth0 down
+    pi@raspberrypi ~ $ sudo ifconfig eth0 up
 
 ##### **TODO:** *Allow web access over the internet*
 
@@ -191,19 +191,19 @@ Go to the No-IP website and create an account (you need it for the configuration
 
 Create a directory to install No-IP in, and navigate to that directory.
 
-    mkdir /home/pi/noip
-    cd /home/pi/noip
+    pi@raspberrypi ~ $ mkdir /home/pi/noip
+    pi@raspberrypi ~ $ cd /home/pi/noip
 
 Download and extract the No-IP application.
 
-    wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
-    tar vzxf noip-duc-linux.tar.gz
+    pi@raspberrypi /home/pi/noip $ wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz
+    pi@raspberrypi /home/pi/noip $ tar vzxf noip-duc-linux.tar.gz
 
 Go to the extracted directory and install the application.
 
-    cd noip-2.1.9-1/
-    sudo make
-    sudo make install
+    pi@raspberrypi /home/pi/noip $ cd noip-2.1.9-1/
+    pi@raspberrypi /home/pi/noip/noip-2.1.9-1 $ sudo make
+    pi@raspberrypi /home/pi/noip/noip-2.1.9-1 $ sudo make install
 
 **TODO:** *Visiting your site by its domain name*
 
@@ -211,13 +211,13 @@ Go to the extracted directory and install the application.
 
 To run the application in the open terminal:
 
-    python hello.py
+    pi@raspberrypi ~ $ python hello.py
 
 To run the application in the background:
 
-    python hello.py &
+    pi@raspberrypi ~ $ python hello.py &
 
-It will tell you the pid (process id) and give you a command prompt.
+Running the application in the background will tell you the pid (process id) before giving you a command prompt.
 
 > [1] 3472
 
@@ -229,29 +229,29 @@ To close the application in the open terminal:
 
 To find the application in the background:
 
-    pgrep python
+    pi@raspberrypi ~ $ pgrep python
 
 > 3472
 
-To close the application in the background, type pkill followed by the pid returned from the previous command.
+To close the application in the background, type kill followed by the pid returned from the previous command.
 
-    kill 3472
+    pi@raspberrypi ~ $ kill 3472
 
 ### Git setup
 
 Install git.
 
-    sudo apt-get install git
+    pi@raspberrypi ~ $ sudo apt-get install git
 
 Configure your account details.
 
-    git config --global user.name "Jeremy Kerr"
-    git config --global user.email "jeremy.p.kerr@gmail.com"
+    pi@raspberrypi ~ $ git config --global user.name "Jeremy Kerr"
+    pi@raspberrypi ~ $ git config --global user.email "jeremy.p.kerr@gmail.com"
 
 Clone a repository.
 
-    cd ~
-    git clone https://github.com/jeremykerr/equanimous-tribble
+    pi@raspberrypi ~ $ cd ~
+    pi@raspberrypi ~ $ git clone https://github.com/jeremykerr/equanimous-tribble
 
 ### Application Development
 
