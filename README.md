@@ -47,15 +47,13 @@ Open the Raspberry Pi config utility to enable ssh.
 
     sudo raspi-config
 
-> [8 Advanced Options]
-
-> [A4 SSH]
-
-> [Enable]
-
-> [OK]
-
-> [Finish]
+```
+[8 Advanced Options]
+[A4 SSH]
+[Enable]
+[OK]
+[Finish]
+```
 
 Get the inet address of the Raspberry Pi device in order to be able to ssh in.
 
@@ -85,7 +83,6 @@ Log in from a different machine on the same network.
 
     ssh pi@10.0.0.7
 
-
 #### **TODO:** *Enable SSH over the internet*
 
 ### Using Flask on the Raspberry Pi
@@ -104,6 +101,39 @@ http://flask.pocoo.org/
     sudo pip install Flask
 
 #### Build a simple hello world application
+
+Create and open a new file called "hello.py".
+
+    vi hello.py
+
+Some code needs to be written in order to create the server instance and to return a "Hello, world." string when a request is made to the application. One thing worth mentioning is that app.debug is being set to False in the following code. The property app.debug can be used to dynamically reload the source file (hello.py) whenever it is changed, which is convenient when developing locally on a machine that is not accepting requests from the web. However, this dynamic reloading makes it possible for a malicious attacker to run arbitrary code through your web application, so app.debug should never be set to True on a production machine. Read the Flask documentation for more details.
+
+To insert within the vi editor:
+
+    [ESC]
+    [i]
+
+Type manually:
+
+```
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
+  return "Hello, world."
+
+if __name__ == "__main__":
+  app.debug = False
+  app.run()
+
+```
+
+To save changes within the vi editor:
+
+    [ESC]
+    :wq
+    [ENTER]
 
 #### Allow web access to the application
 
@@ -185,15 +215,27 @@ To run the application in the open terminal:
 
 To run the application in the background:
 
+    python hello.py &
+
+It will tell you the pid (process id) and give you a command prompt.
+
+> [1] 3472
+
 #### Closing the application
 
 To close the application in the open terminal:
 
-> Press [Ctrl] + [C]
+    [Ctrl] + [C]
 
 To find the application in the background:
 
-To close the application in the background:
+    pgrep python
+
+> 3472
+
+To close the application in the background, type pkill followed by the pid returned from the previous command.
+
+    kill 3472
 
 ### Git setup
 
