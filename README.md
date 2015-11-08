@@ -224,6 +224,8 @@ To run the application in the background:
 
 Running the application in the background will tell you the pid (process id) before giving you a command prompt.
 
+If the earlier instructions on allowing web access over the local network were followed, any computer on the network should now be able to access 10.0.0.7:5000 (or whatever the relevant eth0 inet address is) and see the "Hello, world." string.
+
 > [1] 3472
 
 #### Closing the application
