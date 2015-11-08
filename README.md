@@ -152,7 +152,11 @@ Restart IP Tables to activate the new rule set.
 
 ###### Install No-IP for Dynamic DNS
 
-Create a directory to install No-IP in, and go to that directory.
+Go to the No-IP website and create an account (you need it for the configuration in the installation).
+
+> http://www.noip.com/
+
+Create a directory to install No-IP in, and navigate to that directory.
 
     mkdir /home/pi/noip
     cd /home/pi/noip
