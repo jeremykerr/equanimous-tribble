@@ -17,9 +17,7 @@ This is just a test application so that I can learn a bit more about the life of
       * **TODO:** *Port Forwarding*
       * Installing No-IP for Dynamic DNS
   * Running the application
-    * Running in debug mode
-    * Running in production
-    * Closing the application
+  * Closing the application
 * Git setup
 * Application Development
 
@@ -187,12 +185,7 @@ To run the application in the open terminal:
 
 To run the application in the background:
 
-
-##### Running in debug mode
-
-##### Running in production
-
-##### Closing the application
+#### Closing the application
 
 To close the application in the open terminal:
 
