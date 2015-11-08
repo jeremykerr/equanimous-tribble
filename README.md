@@ -14,10 +14,8 @@ This is just a test application so that I can learn a bit more about the life of
   * Allow web access to the application
     * Allow web access over the local network
     * **TODO:** *Allow web accessibility over the internet*
-      * Configuring Port Forwarding
-        * Visiting your site by its IP Address
-      * Install No-IP for Dynamic DNS
-        * Visiting your site by its domain name
+      * **TODO:** *Configuring Port Forwarding*
+      * Installing No-IP for Dynamic DNS
   * Running the application
     * Running in debug mode
     * Running in production
@@ -159,7 +157,7 @@ Restart IP Tables to activate the new rule set.
 
 **TODO:** *Visiting your site by its IP Address*
 
-###### Install No-IP for Dynamic DNS
+###### Installing No-IP for Dynamic DNS
 
 Go to the No-IP website and create an account (you need it for the configuration in the installation).
 
