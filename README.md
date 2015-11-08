@@ -106,6 +106,7 @@ http://flask.pocoo.org/
 
 Create and open a new file called "hello.py".
 
+    pi@raspberrypi ~ $ touch hello.py
     pi@raspberrypi ~ $ vi hello.py
 
 Some code needs to be written in order to create the server instance and to return a "Hello, world." string when a request is made to the application. One thing worth mentioning is that app.debug is being set to False in the following code. The property app.debug can be used to dynamically reload the source file (hello.py) whenever it is changed, which is convenient when developing locally on a machine that is not accepting requests from the web. However, this dynamic reloading makes it possible for a malicious attacker to run arbitrary code through your web application, so app.debug should never be set to True on a production machine. Read the Flask documentation for more details.
