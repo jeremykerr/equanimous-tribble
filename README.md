@@ -1,6 +1,6 @@
 # equanimous-tribble
 
-This is just a test application so that I can learn a bit more about the life of applications from inception to implementation, including all the phases from learning the platforms to building the end product. The application itself probably will be a simple shopping cart application, just like any of the other thousands of shopping cart applications that exist. Nothing will make it special or different, other than the inclusion of what was involved to get each feature up and running.
+This is just a test application so that I can learn a bit more about the life of applications from inception to implementation, including all the phases from learning the platforms to building the end product. The application itself will probably be a simple shopping cart application, just like any of the other thousands of shopping cart applications that exist. Nothing will make it special or different, other than the inclusion of what was involved to get each feature up and running.
 
 ## Contents
 * **TODO:** *Raspberry Pi Installation and Initial Configuration*
