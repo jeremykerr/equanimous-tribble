@@ -201,12 +201,15 @@ Install git.
 
     sudo apt-get install git
 
+Configure your account details.
+
+    git config --global user.name "Jeremy Kerr"
+    git config --global user.email "jeremy.p.kerr@gmail.com"
+
 Clone a repository.
 
     cd ~
     git clone https://github.com/jeremykerr/equanimous-tribble
-    git config --global user.name "Jeremy Kerr"
-    git config --global user.email "jeremy.p.kerr@gmail.com"
 
 ### Application Development
 
