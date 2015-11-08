@@ -13,7 +13,7 @@ This is just a test application so that I can learn a bit more about the life of
   * Build a simple hello world application
   * Allow web access to the application
     * Allow web access over the local network
-    * **TODO:** *Allow web accessibility over the internet*
+    * **TODO:** *Allow web access over the internet*
       * **TODO:** *Port Forwarding*
       * Installing No-IP for Dynamic DNS
   * Running the application
@@ -149,7 +149,7 @@ Restart IP Tables to activate the new rule set.
     sudo ifconfig eth0 down
     sudo ifconfig eth0 up
 
-##### **TODO:** *Allow web accessibility over the internet*
+##### **TODO:** *Allow web access over the internet*
 
 ###### Configuring Port Forwarding
 
