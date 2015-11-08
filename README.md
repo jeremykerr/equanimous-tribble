@@ -109,7 +109,7 @@ Create and open a new file called "hello.py".
     pi@raspberrypi ~ $ touch hello.py
     pi@raspberrypi ~ $ vi hello.py
 
-Some code needs to be written in order to create the server instance and to return a "Hello, world." string when a request is made to the application. One thing worth mentioning is that app.debug is being set to False in the following code. The property app.debug can be used to dynamically reload the source file (hello.py) whenever it is changed, which is convenient when developing locally on a machine that is not accepting requests from the web. However, this dynamic reloading makes it possible for a malicious attacker to run arbitrary code through your web application, so app.debug should never be set to True on a production machine. Read the Flask documentation for more details.
+Some code needs to be written in order to create the server instance and to return a "Hello, world." string when a request is made to the application. One thing worth mentioning is that app.debug is being set to False in the following code. The property app.debug can be used to dynamically reload the source file (hello.py) whenever it is changed, which is convenient when developing locally on a machine that is not accepting requests from the web. However, this dynamic reloading makes it possible for a malicious attacker to run arbitrary code through your web application, so app.debug should never be set to True on a production machine. Read the Flask documentation for more details on that. The other thing worth noting is that app.run is passed an argument, host='0.0.0.0'. This allows the server to be externally visible (meaning you can't view it anywhere except localhost if this argument is not set).
 
 To insert within the vi editor:
 
@@ -128,7 +128,7 @@ def hello_world():
 
 if __name__ == "__main__":
   app.debug = False
-  app.run()
+  app.run(host='0.0.0.0')
 
 ```
 
@@ -141,6 +141,10 @@ To save changes within the vi editor:
 #### Allow web access to the application
 
 ##### Allow web access over the local network
+
+*As listed, the "Allow web access over the local network" phase will need to be repeated each time the Raspberry Pi unit is rebooted. To get around this, these actions can be scripted and set to run on startup.*
+
+**TODO:** *Include instructions for scripting this section so that changes persist if the Raspberry Pi unit is rebooted*
 
 Get the inet address of the Raspberry Pi device.
 
