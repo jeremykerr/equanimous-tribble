@@ -55,7 +55,7 @@ Open the Raspberry Pi config utility to enable ssh.
 [Finish]
 ```
 
-Get the inet address of the Raspberry Pi device in order to be able to ssh in.
+Get the eth0 inet address of the Raspberry Pi device in order to be able to ssh in.
 
     pi@raspberrypi ~ $ ifconfig
 
@@ -146,30 +146,6 @@ To save changes within the vi editor:
 
 **TODO:** *Include instructions for scripting this section so that changes persist if the Raspberry Pi unit is rebooted*
 
-Get the inet address of the Raspberry Pi device.
-
-    pi@raspberrypi ~ $ ifconfig
-
-```
-eth0      Link encap:Ethernet  HWaddr b8:27:eb:7f:8d:fa  
-          inet addr:10.0.0.7  Bcast:10.0.0.255  Mask:255.255.255.0
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:45485 errors:0 dropped:4 overruns:0 frame:0
-          TX packets:4089 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000 
-          RX bytes:10284766 (9.8 MiB)  TX bytes:415834 (406.0 KiB)
-
-lo        Link encap:Local Loopback  
-          inet addr:127.0.0.1  Mask:255.0.0.0
-          UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:8 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:8 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:0 
-          RX bytes:1104 (1.0 KiB)  TX bytes:1104 (1.0 KiB)
-```
-
-> inet addr:10.0.0.7
-
 View the iptables rules in place.
 
     pi@raspberrypi ~ $ sudo iptables -L
@@ -224,7 +200,7 @@ To run the application in the background:
 
 Running the application in the background will tell you the pid (process id) before giving you a command prompt.
 
-If the earlier instructions on allowing web access over the local network were followed, any computer on the network should now be able to access 10.0.0.7:5000 (or whatever the relevant eth0 inet address is) and see the "Hello, world." string.
+If the earlier instructions on allowing web access over the local network were followed, any computer on the network should now be able to access 10.0.0.7:5000 (or whatever the relevant eth0 inet address is) and see the "Hello, world." string. To see the eth0 inet address, type ifconfig at the command prompt.
 
 > [1] 3472
 
