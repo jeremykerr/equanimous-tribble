@@ -8,13 +8,13 @@ This is just a test application so that I can learn a bit more about the life of
 * Enabling SSH for remote development
   * Enable SSH on the local network
   * **TODO:** *Enable SSH over the internet*
+    * **TODO:** *Port Forwarding*
 * Using Flask on the Raspberry Pi
   * Install Flask for Raspberry Pi
   * Build a simple hello world application
   * Allow web access to the application
     * Allow web access over the local network
     * **TODO:** *Allow web access over the internet*
-      * **TODO:** *Port Forwarding*
       * Installing No-IP for Dynamic DNS
   * Running the application
   * Closing the application
@@ -84,6 +84,8 @@ Log in from a different machine on the same network.
     ssh pi@10.0.0.7
 
 #### **TODO:** *Enable SSH over the internet*
+
+##### **TODO:** *Port Forwarding*
 
 ### Using Flask on the Raspberry Pi
 
@@ -178,8 +180,6 @@ Restart IP Tables to activate the new rule set.
     sudo ifconfig eth0 up
 
 ##### **TODO:** *Allow web access over the internet*
-
-###### **TODO:** *Port Forwarding*
 
 **TODO:** *Visiting your site by its IP Address*
 
