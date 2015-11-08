@@ -14,7 +14,10 @@ This is just a test application so that I can learn a bit more about the life of
   * Allow web access to the application
     * Allow web access over the local network
     * **TODO:** *Allow web accessibility over the internet*
+      * Configuring Port Forwarding
+        * Visiting your site by its IP Address
       * Install No-IP for Dynamic DNS
+        * Visiting your site by its domain name
   * Running the application
     * Running in debug mode
     * Running in production
@@ -150,6 +153,12 @@ Restart IP Tables to activate the new rule set.
 
 ##### **TODO:** *Allow web accessibility over the internet*
 
+###### Configuring Port Forwarding
+
+######**TODO:** *Configuring Port Forwarding*
+
+**TODO:** *Visiting your site by its IP Address*
+
 ###### Install No-IP for Dynamic DNS
 
 Go to the No-IP website and create an account (you need it for the configuration in the installation).
@@ -171,6 +180,8 @@ Go to the extracted directory and install the application.
     cd noip-2.1.9-1/
     sudo make
     sudo make install
+
+**TODO:** *Visiting your site by its domain name*
 
 #### Running the application
 
