@@ -151,9 +151,7 @@ Restart IP Tables to activate the new rule set.
 
 ##### **TODO:** *Allow web access over the internet*
 
-###### Configuring Port Forwarding
-
-######**TODO:** *Configuring Port Forwarding*
+###### **TODO:** *Port Forwarding*
 
 **TODO:** *Visiting your site by its IP Address*
 
