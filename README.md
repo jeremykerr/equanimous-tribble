@@ -17,6 +17,7 @@ This is just a test application so that I can learn a bit more about the life of
     * **TODO:** *Allow web access over the internet*
       * **TODO:** *Visiting your site by its IP Address*
       * Installing No-IP for Dynamic DNS
+      * **TODO:** *Visiting your site by its domain name*
   * Running the application
   * Closing the application
 * Git setup
