@@ -24,6 +24,8 @@ This is just a test application so that I can learn a bit more about the life of
     * Installing PostgreSQL
     * Running the PostgreSQL postmaster
 
+### **TODO:** *Raspberry Pi Installation and Initial Configuration*
+
 ### Raspberry Pi Software Update
 
 To update your package lists so that you can access the most up to date versions of the software you're running:
