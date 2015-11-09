@@ -20,11 +20,13 @@ This is just a test application so that I can learn a bit more about the life of
       * **TODO:** *Visiting your site by its domain name*
   * Running the application
   * Closing the application
+* **TODO:** *Using PostgreSQL on the Raspberry Pi*
+  * Installing PostgreSQL
+  * Running the PostgreSQL postmaster
+  * **TODO:** *Connecting to the PostgreSQL Instance*
 * Git setup
-* Application Development
-  * **TODO:** *Using PostgreSQL on the Raspberry Pi*
-    * Installing PostgreSQL
-    * Running the PostgreSQL postmaster
+* **TODO:** *Application Development*
+
 
 ### **TODO:** *Raspberry Pi Installation and Initial Configuration*
 
@@ -227,26 +229,8 @@ To close the application in the background, type kill followed by the pid return
 
     pi@raspberrypi ~ $ kill 3472
 
-### Git setup
-
-Install git.
-
-    pi@raspberrypi ~ $ sudo apt-get install git
-
-Configure your account details.
-
-    pi@raspberrypi ~ $ git config --global user.name "Jeremy Kerr"
-    pi@raspberrypi ~ $ git config --global user.email "jeremy.p.kerr@gmail.com"
-
-Clone a repository.
-
-    pi@raspberrypi ~ $ cd ~
-    pi@raspberrypi ~ $ git clone https://github.com/jeremykerr/equanimous-tribble
-
-### Application Development
-
-#### **TODO:** *Using PostgreSQL on the Raspberry Pi*
-##### Installing PostgreSQL
+### **TODO:** *Using PostgreSQL on the Raspberry Pi*
+#### Installing PostgreSQL
  
 Raspbian is a Debian 7 (wheezy) build, and is currently supported by PostgreSQL. 
 
@@ -312,7 +296,7 @@ Finally, you can clean up your system.
     pi@raspberrypi ~ $ rm -r /tmp/postgresql-9.4-9.4.5/
     pi@raspberrypi ~ $ sudo apt-get clean
 
-##### Running the PostgreSQL postmaster
+#### Running the PostgreSQL postmaster
 
 To start PostgreSQL, use the unix service command.
 
@@ -325,6 +309,26 @@ To stop PostgreSQL:
 To restart PostgreSQL:
 
     pi@raspberrypi ~ $ sudo service postgresql restart
+
+#### **TODO:** *Connecting to the PostgreSQL instance*
+
+### Git setup
+
+Install git.
+
+    pi@raspberrypi ~ $ sudo apt-get install git
+
+Configure your account details.
+
+    pi@raspberrypi ~ $ git config --global user.name "Jeremy Kerr"
+    pi@raspberrypi ~ $ git config --global user.email "jeremy.p.kerr@gmail.com"
+
+Clone a repository.
+
+    pi@raspberrypi ~ $ cd ~
+    pi@raspberrypi ~ $ git clone https://github.com/jeremykerr/equanimous-tribble
+
+### **TODO:** *Application Development*
 
 
 
