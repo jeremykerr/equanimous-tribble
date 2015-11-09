@@ -255,9 +255,11 @@ To build PostgreSQL from source on a Raspberry Pi, you have to add the PostgreSQ
     pi@raspberrypi ~ $ sudo touch /etc/apt/sources.list.d/pgdg.list
     pi@raspberrypi ~ $ sudo vi /etc/apt/sources.list.d/pgdg.list
 
-Save the following line in this file. This allows us to access the PostgreSQL apt repository. In the PostgreSQL documentation, they use deb, which means they are building from binary sources. Because we are compiling from source packages from the PostgreSQL Apt repository, we will use deb-src instead.
+Save the following line in this file.
 
     deb-src http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main
+
+This allows us to access the PostgreSQL apt repository. In the PostgreSQL documentation, they use deb, which means they are building from binary sources. Because we are compiling from source packages from the PostgreSQL Apt repository, we will use deb-src instead.
 
 You also need to import the repository signing key, and update your repositories.
 
