@@ -15,6 +15,7 @@ This is just a test application so that I can learn a bit more about the life of
   * Allow web access to the application
     * Allow web access over the local network
     * **TODO:** *Allow web access over the internet*
+      * **TODO:** *Visiting your site by its IP Address*
       * Installing No-IP for Dynamic DNS
   * Running the application
   * Closing the application
