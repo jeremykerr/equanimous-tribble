@@ -20,6 +20,9 @@ This is just a test application so that I can learn a bit more about the life of
   * Closing the application
 * Git setup
 * Application Development
+  * **TODO:** *Using PostgreSQL on the Raspberry Pi*
+    * Installing PostgreSQL
+    * Running the PostgreSQL postmaster
 
 ### Raspberry Pi Software Update
 
@@ -237,4 +240,86 @@ Clone a repository.
     pi@raspberrypi ~ $ git clone https://github.com/jeremykerr/equanimous-tribble
 
 ### Application Development
+
+#### **TODO:** *Using PostgreSQL on the Raspberry Pi*
+##### Installing PostgreSQL
+ 
+Raspbian is a Debian 7 (wheezy) build, and is currently supported by PostgreSQL. 
+
+> https://wiki.postgresql.org/wiki/Apt
+
+Rubens Souza posted an excellent article (http://raspberrypg.org/2015/06/step-5-update-installing-postgresql-on-my-raspberry-pi-1-and-2/) on installing PostgreSQL on a Raspberry Pi 2. Some of the following information is directly pulled from that source, and from the documentation on PostgreSQL.org (http://www.postgresql.org/download/linux/ubuntu/).
+
+To build PostgreSQL from source on a Raspberry Pi, you have to add the PostgreSQL Apt Repository. In order to create the file to store the PostgreSQL Apt Repository location to, you need to have superuser permissions.
+
+    pi@raspberrypi ~ $ sudo touch /etc/apt/sources.list.d/pgdg.list
+    pi@raspberrypi ~ $ sudo vi /etc/apt/sources.list.d/pgdg.list
+
+Save the following line in this file. This allows us to access the PostgreSQL apt repository. In the PostgreSQL documentation, they use deb, which means they are building from binary sources. Because we are compiling from source packages from the PostgreSQL Apt repository, we will use deb-src instead.
+
+    deb-src http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main
+
+You also need to import the repository signing key, and update your repositories.
+
+    pi@raspberrypi ~ $ wget -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+    pi@raspberrypi ~ $ sudo apt-get update
+
+Finally, you can build the dependencies and compile the packages needed for running PostgreSQL. Before doing that, you should install build-essential. Build-essential is a package that contains all of the standard build tools that will be needed (dpkg-dev, g++, gcc, libc6-dev, libc-dev, make) to compile the PostgreSQL packages.
+
+    # build-essential is preinstalled on Raspbian
+    pi@raspberrypi ~ $ # sudo apt-get install build-essential
+
+    pi@raspberrypi ~ $ sudo apt-get build-dep postgresql-9.4
+    pi@raspberrypi ~ $ sudo apt-get build-dep postgresql-common
+    pi@raspberrypi ~ $ sudo apt-get build-dep postgresql-client-common
+    pi@raspberrypi ~ $ sudo apt-get build-dep pgdg-keyring
+
+    pi@raspberrypi ~ $ cd /tmp
+    pi@raspberrypi /tmp $ apt-get source --compile postgresql-9.4
+    pi@raspberrypi /tmp $ apt-get source --compile postgresql-common
+    pi@raspberrypi /tmp $ apt-get source --compile postgresql-client-common
+    pi@raspberrypi /tmp $ apt-get source --compile pgdg-keyring
+
+You can now create a local repository to move the compiled packages to, and install them from that repository.
+
+    pi@raspberrypi ~ $ sudo mkdir /var/local/repository
+    pi@raspberrypi ~ $ echo "deb [ trusted=yes ] file:///var/local/repository ./" | \
+        sudo tee /etc/apt/sources.list.d/local_repos.list
+    pi@raspberrypi ~ $ cd /var/local/repository
+    pi@raspberrypi /var/local/repository $ sudo mv /tmp/*.deb
+    pi@raspberrypi /var/local/repository $ dpkg-scanpackages ./ | sudo tee Packages > /dev/null && \
+        sudo gzip -f Packages
+
+Update your package list to include the new local repository.
+
+    pi@raspberrypi ~ $ sudo apt-get update
+
+Install PostgreSQL.
+
+    pi@raspberrypi ~ $ sudo apt-get install postgresql-9.4
+
+Finally, you can clean up your system.
+
+    pi@raspberrypi ~ $ rm /tmp/*
+    pi@raspberrypi ~ $ rm -r /tmp/pgdg-keyring-2014.1/
+    pi@raspberrypi ~ $ rm -r /tmp/postgresql-common-170.pgdg70+1/
+    pi@raspberrypi ~ $ rm -r /tmp/postgresql-9.4-9.4.5/
+    pi@raspberrypi ~ $ sudo apt-get clean
+
+##### Running the PostgreSQL postmaster
+
+To start PostgreSQL, use the unix service command.
+
+    pi@raspberrypi ~ $ sudo service postgresql start
+
+To stop PostgreSQL:
+
+    pi@raspberrypi ~ $ sudo service postgresql stop
+
+To restart PostgreSQL:
+
+    pi@raspberrypi ~ $ sudo service postgresql restart
+
+
+
 
