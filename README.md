@@ -42,42 +42,6 @@ This is just a test application so that I can learn a bit more about the life of
 * Git setup
 * **TODO:** *Application Development*
 
-
-* Hardware Required
-* Raspberry Pi Installation and Initial Configuration
-  * Loading Raspbian onto a micro SD card
-  * Configuring Raspbian on your Raspberry Pi
-    * Expanding the filesystem
-      * Jessie
-      * Wheezy
-    * Disabling the User Interface and default login
-      * Jessie
-      * Wheezy
-    * Changing the Hostname
-    * Modifying Location, Time, and Keyboard Settings
-    * Changing your password
-    * Enabling SSH connections over the local network
-    * Configuring hostnames for SSH
-  * Updating the Raspbian OS and software packages
-* Using Flask on the Raspberry Pi
-  * Install Flask for Raspberry Pi
-  * Build a simple hello world application
-  * Allow web access to the application
-    * Allow web access over the local network
-    * **TODO:** *Allow web access over the internet*
-      * **TODO:** *Visiting your site by its IP Address*
-      * Installing No-IP for Dynamic DNS
-      * **TODO:** *Visiting your site by its domain name*
-  * Running the application
-  * Closing the application
-* **TODO:** *Using PostgreSQL on the Raspberry Pi*
-  * Installing PostgreSQL
-  * Running the PostgreSQL postmaster
-  * Changing the default PostgreSQL credentials
-  * **TODO:** *Connecting to the PostgreSQL instance*
-* Git setup
-* **TODO:** *Application Development*
-
 ### Hardware Required
 
 In order to fully follow along with these instructions, you will need the following items. I used two separate Raspberry Pi units, one for the database machine and one for the web interface machine, though you can install both requirements on a single unit with decreased performance if cost is a factor.
