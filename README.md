@@ -526,7 +526,7 @@ If you are attempting to build on Jessie, you should use the following line inst
 
     deb-src http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main
 
-This allows us to access the PostgreSQL apt repository. In the PostgreSQL documentation, they use deb, which means they are building from binary sources. Because we are compiling from source packages from the PostgreSQL Apt repository, we will use deb-src instead.
+This allows us to access the PostgreSQL apt repository. In the PostgreSQL documentation, they use deb, which means they are building from binary sources. Because we are compiling from source packages from the PostgreSQL Apt repository, we used deb-src instead.
 
 You also need to import the repository signing key, and update your repositories.
 
