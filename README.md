@@ -282,6 +282,7 @@ lo        Link encap:Local Loopback
 ```
 
 > eth0 inet addr:10.0.0.7    # web-dev
+
 > eth0 inet addr:10.0.0.21    # db-dev
 
 You should now be able to log in from a different machine on the same network.
