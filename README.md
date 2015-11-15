@@ -533,10 +533,14 @@ You also need to import the repository signing key, and update your repositories
     pi@db-dev ~ $ wget -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
     pi@db-dev ~ $ sudo apt-get update
 
-Finally, you can build the dependencies and compile the packages needed for running PostgreSQL. Before doing that, you should install build-essential. Build-essential is a package that contains all of the standard build tools that will be needed (dpkg-dev, g++, gcc, libc6-dev, libc-dev, make) to compile the PostgreSQL packages.
+Finally, you can build the dependencies and compile the packages needed for running PostgreSQL. Before doing that, you should install build-essential. Build-essential is a package that contains all of the standard build tools that will be needed (dpkg-dev, g++, gcc, libc6-dev, libc-dev, make) to compile the PostgreSQL packages. You also need fakeroot for some of the PostgreSQL compilation tests (to verify that it builds correctly). Fakeroot does not escalate privileges or compromise your security, calling it only provides a virtual environment that allows tests to pretend to access system resources without actually accessing them. This is convenient for running tests without actually modifying your system. For more information, feel free to read the documentation or source code.
+
+http://manpages.ubuntu.com/manpages/natty/man1/fakeroot-tcp.1.html
 
     # build-essential is preinstalled on Raspbian
     pi@db-dev ~ $ # sudo apt-get install build-essential
+    # fakeroot is preinstalled on Raspbian
+    pi@db-dev ~ $ # sudo apt-get install fakeroot
 
     pi@db-dev ~ $ sudo apt-get build-dep postgresql-9.4
     pi@db-dev ~ $ sudo apt-get build-dep postgresql-common
@@ -603,49 +607,46 @@ This will prompt you to enter your new password.
 
 #### **TODO:** *Letting PostgreSQL listen to a machine on the local network on port 5432*
 
-Initiate a PostgreSQL cluster, passing in the data directory argument for where data will be stored.
+First, determine where the data directory of your PostgreSQL cluster is stored.
 
     pi@db-dev ~ $ sudo su - postgres
-    postgres@db-dev ~ $ chown -R postgres: /usr/local/pgsql
-    postgres@db-dev ~ $ mkdir /usr/local/pgsql/data
-    postgres@db-dev ~ $ /usr/lib/postgresql/9.4/bin/initdb -D /usr/local/pgsql/data
-    postgres@db-dev ~ $ logout
+    postgres@db-dev:~$ psql
+    postgres=# SHOW data_directory;
 
-To start the server:
+```
+        data_directory
+------------------------------
+ /var/lib/postgresql/9.4/main
+(1 row)
+```
 
-    pi@db-dev ~ $ /usr/lib/postgresql/9.4/bin/postgres -D /usr/local/pgsql/data
+In order to configure your PostgreSQL cluster, you need to know where your config file is located.
 
-or:
+    postgres=# SHOW config_file;
 
-    pi@db-dev ~ $ /usr/lib/postgresql/9.4/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
+```
+               config_file
+------------------------------------------
+ /etc/postgresql/9.4/main/postgresql.conf
+(1 row)
+```
 
-View the iptables rules in place.
+In order to configure client authentication parameters, you need to know where your client authentication configuration file is called. Typically, this is called pg_hba.conf, but you can check using SHOW hba_file.
 
-    pi@db-dev ~ $ sudo iptables -L
+    postgres=# SHOW hba_file;
 
-Use ifconfig on the machine you want to be able to connect from. Get the 
-Add the PostgreSQL rule for a connection to that eth0 inet address.
+```
+               hba_file
+--------------------------------------
+ /etc/postgresql/9.4/main/pg_hba.conf
+```
 
-    pi@db-dev ~ $ sudo iptables -A INPUT -p tcp --dport 5432 -s 10.0.0.13 -j ACCEPT
-
-Saving the iptables rules
-
-    pi@db-dev ~ $ sudo sh -c "iptables-save > /etc/iptables.rules"
-
-Restore the iptables rules. You need superuser privileges and you need to run this command inside of a shell (a command line interpreter) in order for the command to be interpreted correctly and with the correct privileges.
-
-    pi@db-dev ~ $ sudo sh -c "iptables-restore < /etc/iptables.rules"
+    postgres=# \q
+    postgres@db-dev:~$ ls /var/lib/postgresql/9.4/main/
+    postgres@db-dev:~$ exit
+    pi@db-dev ~ $
 
 
-Restart IP Tables to activate the new rule set.
-
-    pi@db-dev ~ $ sudo ifconfig eth0 down
-    pi@db-dev ~ $ sudo ifconfig eth0 up
-
-Logging into PostgreSQL as postgres from another machine:
-
-    jeremykerr@jeremykerr ~ $ psql -U postgres -h localhost
-    postgres=# 
 
 #### **TODO:** *Connecting to the PostgreSQL instance*
 
