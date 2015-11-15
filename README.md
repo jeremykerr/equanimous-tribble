@@ -674,7 +674,6 @@ https://help.github.com/articles/generating-ssh-keys/
 
 For key based authentication, you will also need to update the settings in your ~/.ssh/config file so that when you push changes to your git repository, git knows to use your key to authenticate you.
 
-
     jeremykerr@jeremykerr ~ $ cd /.ssh
     jeremykerr@jeremykerr ~/.ssh $ vi ~/.ssh/config
 
@@ -706,6 +705,20 @@ Finally you can clone your repository. If you want to use key authentication rat
 
     # HTTPS
     pi@web-dev ~ $ git clone https://github.com/jeremykerr/equanimous-tribble
+
+When you make changes, you can check the status of your project using git status.
+
+    jeremykerr@jeremykerr ~/equanimous-tribble $ git status
+
+To pull any changes from the remote repository, you can use git pull.
+
+    pi@web-dev ~/equanimous-tribble $ git pull
+
+Finally, if you've made changes, you can push those changes by adding the files that have changed, committing the changes, and pushing them back to the remote host.
+
+    jeremykerr@jeremykerr ~/equanimous-tribble $ git add README.md
+    jeremykerr@jeremykerr ~/equanimous-tribble $ git commit -m "Minor changes to README.md"
+    jeremykerr@jeremykerr ~/equanimous-tribble $ git push
 
 ### **TODO:** *Application Development*
 
