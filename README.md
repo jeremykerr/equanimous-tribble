@@ -402,7 +402,7 @@ if __name__ == "__main__":
 
 ```
 
-To save changes within the vi editor:
+To save changes within the vi editor, press the following keys.
 
     [ESC]
     [:][w][q]
