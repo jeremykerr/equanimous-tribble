@@ -225,7 +225,7 @@ Use Control+Alt+Backspace to terminate the X server? <Yes>
 
 This is a good time to reboot your unit in order to make sure that keyboard layout changes were applied before resetting your password. It probably would be fine if you didn't reboot, but I prefer to be safe rather than having to rebuild everything because I can't login.
 
-Choose [Finish] in order to apply the changes you've made and then exit the configuration utility. If prompted, select [Reboot Now]. Otherwise, type the following command into the terminal:
+Choose [Finish] in order to apply the changes you've made and then exit the configuration utility. If prompted, select [Reboot Now]. Otherwise, type the following command into the terminal in order to reboot.
 
     pi@web-dev ~ $ sudo shutdown -r now
 
