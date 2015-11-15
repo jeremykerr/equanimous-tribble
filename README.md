@@ -664,6 +664,10 @@ Configure your account details.
     pi@web-dev ~ $ git config --global user.name "Jeremy Kerr"
     pi@web-dev ~ $ git config --global user.email "jeremy.p.kerr@gmail.com"
 
+To list your account details, run the following command.
+
+    jeremykerr@jeremykerr ~ $ git config -l
+
 For key based authentication, add your SSH key (id_rsa.pub) to the list of allowed SSH keys for your repository. If you are using Github, they have instructions posted at the following link. You can generate a new key or use the key you already generated for SSH operations in the 'Configuring hostnames for SSH' section of this guide.
 
 https://help.github.com/articles/generating-ssh-keys/
