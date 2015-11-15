@@ -51,7 +51,7 @@ In order to fully follow along with these instructions, you will need the follow
 * 1 or more micro SD cards (I used 32 GB micro SD cards)
 * 1 computer on the same network (Ideally it is running a unix based OS, though you can look up instructions on the web for flashing the Raspbian image to a micro SD card on Windows and for using PuTTy as an SSH terminal.)
 * 1 micro SD card to USB adapter (An adapter for a different port available on your local PC would also be fine.)
-* 1 network switch (Any generic network switch should be fine, I used a TP-Link 5-Porg Gigabit Desktop Switch. This is a soft requirement, if you have 2 extra ethernet ports available on your primary modem/router/switch you can plug the Raspberry Pi units into those instead.)
+* 1 network switch (Any generic network switch should be fine, I used a TP-Link 5-Port Gigabit Desktop Switch. This is a soft requirement, if you have 2 extra ethernet ports available on your primary modem/router/switch you can plug the Raspberry Pi units into those instead.)
 * 3 ethernet cables (These are for the Raspberry Pi units and the network switch.)
 * 1 power strip
 * 1 USB keyboard (You can install the Raspberry Pi units separately. If you intend to use them directly each time as opposed to using them remotely through SSH you will need two instead.)
