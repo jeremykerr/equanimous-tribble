@@ -652,16 +652,55 @@ Logging into PostgreSQL as postgres from another machine:
 
 Install git.
 
+    jeremykerr@jeremykerr ~ $ sudo apt-get install git
+
     pi@web-dev ~ $ sudo apt-get install git
 
 Configure your account details.
 
+    jeremykerr@jeremykerr ~ $ git config --global user.name "Jeremy Kerr"
+    jeremykerr@jeremykerr ~ $ git config --global user.email "jeremy.p.kerr@gmail.com"
+    
     pi@web-dev ~ $ git config --global user.name "Jeremy Kerr"
     pi@web-dev ~ $ git config --global user.email "jeremy.p.kerr@gmail.com"
 
-Clone a repository.
+For key based authentication, add your SSH key (id_rsa.pub) to the list of allowed SSH keys for your repository. If you are using Github, they have instructions posted at the following link. You can generate a new key or use the key you already generated for SSH operations in the 'Configuring hostnames for SSH' section of this guide.
 
-    pi@web-dev ~ $ cd ~
+https://help.github.com/articles/generating-ssh-keys/
+
+For key based authentication, you will also need to update the settings in your ~/.ssh/config file so that when you push changes to your git repository, git knows to use your key to authenticate you.
+
+
+    jeremykerr@jeremykerr ~ $ cd /.ssh
+    jeremykerr@jeremykerr ~/.ssh $ vi ~/.ssh/config
+
+```
+Host web-dev
+    Hostname 10.0.0.7
+    Port 22
+    User pi
+    IdentityFile ~/.ssh/id_rsa
+
+Host db-dev
+    Hostname 10.0.0.21
+    Port 22
+    User pi
+    IdentityFile ~/.ssh/id_rsa
+
+Host equanimous-tribble
+    Hostname github.com
+    User jeremykerr
+    IdentityFile ~/.ssh/id_rsa
+```
+
+To insert text in vi, press 'i' (for Insert). Type the desired text to insert. To stop inserting text, press [ESC]. To save changes and quit, press [:][w][q][ENTER].
+
+Finally you can clone your repository. If you want to use key authentication rather than having to enter your username and password each time you commit, make sure to clone using the SSH clone link instead of the HTTPS link. Since I develop on my main PC and only do git pulls from the Raspberry Pi units, I will only set up my main PC to use key authentication. This repository is public, so no authentication is needed to pull changes.
+
+    # SSH
+    jeremykerr@jeremykerr ~ $ git clone git@github.com:jeremykerr/equanimous-tribble.git
+
+    # HTTPS
     pi@web-dev ~ $ git clone https://github.com/jeremykerr/equanimous-tribble
 
 ### **TODO:** *Application Development*
