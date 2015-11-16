@@ -97,7 +97,7 @@ After this command is finished running, your micro SD card should contain the Ra
 
 #### Configuring Raspbian on your Raspberry Pi
 
-Plug your micro SD card into your Raspberry Pi and power it on. To power in a Raspberry Pi, you should just need to plug in the micro USB charger. It turns on automatically. You should plug in the micro SD card before you plug in the micro USB power source.
+Plug your micro SD card into your Raspberry Pi and power it on. To power on a Raspberry Pi, you should just need to plug in the micro USB charger. It turns on automatically. You should plug in the micro SD card before you plug in the micro USB power source.
 
 With builds after and including Jessie (the build I used), the default behavior is to launch the User Interface instead of a command line interface. Since these units are going to serve as a web server and a database server, they don't require their own user interfaces. Instead, we want that performance to go to their ability to serve remote clients.
 
