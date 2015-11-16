@@ -646,7 +646,9 @@ In order to configure client authentication parameters, you need to know where y
     postgres@db-dev:~$ exit
     pi@db-dev ~ $
 
+**TODO:** *Kerberos + SSH (?)* Currently researching Kerberos for authentication plus SSH for encryption for the connection from web-dev to db-dev. That needs to be completed before db-dev is configured to listen for communication from web-dev on port 5432.
 
+**TODO:** *Least privilege user creation for web-dev* Web dev needs a user with the minimal number of permissions necessary in order to both run the server and perform useful functionality as well as a least privilege database user for interaction with db-dev to perform any required storage and update actions.
 
 #### **TODO:** *Connecting to the PostgreSQL instance*
 
