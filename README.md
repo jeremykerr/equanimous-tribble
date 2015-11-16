@@ -46,7 +46,7 @@ There are currently no features planned that will make this application unusual.
 
 In order to fully follow along with these instructions, you will need the following items. I used two separate Raspberry Pi units, one for the database machine and one for the web interface machine, though you can install both requirements on a single unit with decreased performance if cost is a factor.
 
-* 1 or more Raspberry Pies
+* 1 or more Raspberry Pi 2 units
 * 1 or more micro usb chargers (standard phone chargers usually work)
 * 1 or more micro SD cards (I used 32 GB micro SD cards)
 * 1 computer on the same network (Ideally it is running a unix based OS, though you can look up instructions on the web for flashing the Raspbian image to a micro SD card on Windows and for using PuTTy as an SSH terminal.)
