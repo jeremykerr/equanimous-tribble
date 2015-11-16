@@ -1,6 +1,6 @@
 # equanimous-tribble
 
-There are currently no features planned that will make this application unusual. The purpose of this documentation isn't to describe new functionality, but rather to provide a guide for implementing common utilities that any web application may benefit from having. I hope that others may find this helpful in building their own applications.
+There are currently no features planned that will make this application unusual. The purpose of this documentation isn't to describe new functionality, but rather to provide a guide for implementing common utilities that many web applications may benefit from having. I hope that others may find this helpful in building their own applications.
 
 *Any subsection in this documentation that includes information pulled from a cited source is made available under that source's license, if that license conflicts with the terms of the MIT license. If you have a citation concern or would like to request specific citation formatting, please email jeremy.p.kerr@gmail.com. Thank you.*
 
