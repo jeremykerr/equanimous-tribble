@@ -93,7 +93,9 @@ I tried installing PostgreSQL 9.4 on the Jessie build, but it failed. As a worka
 
 It's very likely that this will take awhile, and as entered it is not verbose, so your terminal will look hung. Don't panic, just let it go for 10-15 minutes if need be. It took 5 minutes on my system using the specific brands of micro SD cards I purchased.
 
-After this command is finished running, your micro SD card should contain the Raspbian operating system.
+After this command is finished running, your micro SD card should contain the Raspbian operating system. In order to ensure that it is safe to remove, run 'sync' in the terminal before removing.
+
+    jeremykerr@jeremykerr ~ $ sync
 
 #### Configuring Raspbian on your Raspberry Pi
 
