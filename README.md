@@ -342,6 +342,24 @@ After saving ~/.ssh/config, you should be able to ssh into each unit using its h
     jeremykerr@jeremykerr ~ $ ssh web-dev
     jeremykerr@jeremykerr ~ $ ssh db-dev
 
+Now we should disable password authentication on each machine for security (So that a user can only login via ssh with an authorized key).
+
+    pi@web-dev ~ $ sudo vi /etc/ssh/sshd_config
+
+You'll want to find the line that says:
+
+    #PasswordAuthentication yes
+
+You'll want to change this to:
+
+    PasswordAuthentication no
+
+(make sure to get rid of the # to uncomment this line)
+
+Finally, to make these changes take effect, restart the machine.
+
+    pi@web-dev ~ $ sudo shutdown -r now
+
 #### Updating the Raspbian OS and software packages
 
 To update your package lists so that you can access the most up to date versions of the software you're running:
